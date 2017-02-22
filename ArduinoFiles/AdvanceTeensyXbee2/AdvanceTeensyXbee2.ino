@@ -1,10 +1,12 @@
 /** 
- *  @author: Ariel Feliz
- *  @date: 2/21/17
- *  @brief: Arduino sketch utilized to have arduino board(teensy3.6) 
+ *  @author : Ariel Feliz
+ *  @date : 2/21/17
+ *  @brief : Arduino sketch utilized to have arduino board(teensy3.6) 
  *  manage communication between xbee and Processing
+ *  @todo : varify that the data comming in is of the correct frame type 
+ *  @todo : varify TCP by looking out for a recieved string with messave number from the teensy. 
 */
-#include <Wire.h>
+//#include <Wire.h>
 String mInX = "";// messages comming in throught from xbee
 String mOutX = "";// messages going out to xbee
 
@@ -16,6 +18,7 @@ bool txX = false;
 
 bool rxP = false;
 bool txP = false;
+
 void setup()
 {
   Serial.begin(115200); // Hardware Serial to r/w communication with processing
