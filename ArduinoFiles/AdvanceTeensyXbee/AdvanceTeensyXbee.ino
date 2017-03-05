@@ -28,7 +28,7 @@ void setup()
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
     while(1);
   }
-  delay(1000);
+  delay(500);
   sensor_t sensor;
   bno.getSensor(&sensor);
 }
@@ -59,12 +59,12 @@ void loop()
   
   ////////////////////////////////// XBEE COMMUNICATION PORTION //////////////////////////////
   //Serial.println("xbee com portion");
-  /*if(ct - pt > 10000)
+  if(ct - pt > 5000)
   {
     pt = ct;
     comm.sendOrientation(roll, pitch, yaw);
     Serial.print("outgoing: ");
-  }*/
+  }
   comm.updateRXMsg();
   if(comm.checkInFlag())
   {
